@@ -8,7 +8,7 @@ greetings.forEach((greets, index) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  const socialButtons = document.querySelectorAll('.sites button');
+  const socialButtons = document.querySelectorAll('.sites button, .contact button');
 
   socialButtons.forEach(button => {
     button.addEventListener('click', () => {

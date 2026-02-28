@@ -218,17 +218,67 @@ button:hover {
 
 .projects {
   width: 80%;
-  height: 15em;
   margin: 0 auto;
   display: grid;
-  border: 2px dashed rgb(00,00,00);
-  font-family: "Cascadia Code", monospace;
-  font-size: 0.5em;
-  align-items: center;
-  justify-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr); /* 3 per row */
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+/* =========================
+   PROJECT CARD
+========================= */
+
+.project-card {
+  position: relative;
+  display: block;
   border-radius: 1.5em;
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Image container */
+.project-image img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay */
+.project-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.4),
+    rgba(0,0,0,0)
+  );
+  color: white;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: transform 0.25s ease;
+}
+
+/* Hover */
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.project-card:hover .project-overlay {
+  transform: translateY(-4px);
+}
+
+/* Active (click feedback) */
+.project-card:active {
+  transform: scale(0.98);
 }
 
 .contact{
@@ -560,4 +610,9 @@ html, body {
     width: 100%;
   }
 
+}
+@media (max-width: 768px) {
+  .projects {
+    grid-template-columns: 1fr;
+  }
 }
